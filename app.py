@@ -24,20 +24,6 @@ numericColumns = [
     if col not in categoricalColumns + ignoredColumns
 ]
 
-st.sidebar.markdown("""
-
----
-
-### How the model was trained
-- Dataset: Tire production machine logs
-- Target: Failure in next 7 days (binary classification)
-- Preprocessing:
-  - One-hot encoding for categorical variables
-- Model:
-  - Random Forest Classifier
-- Evaluation:
-  - Accuracy + classification report
-""")
 st.header("About the app")
 st.subheader("How did we train the model?")
 st.write("""

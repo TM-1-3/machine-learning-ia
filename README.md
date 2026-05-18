@@ -15,7 +15,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 #install packages 
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 # How to run this program? 
