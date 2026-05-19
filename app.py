@@ -3,7 +3,9 @@ import pandas as pd
 import joblib
 
 
-model = joblib.load("model.pkl")
+rfModel = joblib.load("rfModel.pkl")
+dtModel = joblib.load("dtModel.pkl")
+gbModel = joblib.load("gbModel.pkl")
 modelColumns = joblib.load("modelColumns.pkl")
 
 data = pd.read_csv("TireProductionMalfunctions.csv")
@@ -15,7 +17,7 @@ st.set_page_config(
 
 st.title("Machine Failure Predictor")
 
-categoricalColumns = ['machine_name', 'malfunction_component']
+categoricalColumns = ['machine_name', 'last_malfunction_component']
 targetColumn = 'failed_in_next_7_days'
 ignoredColumns = ['date', targetColumn]
 
@@ -79,6 +81,16 @@ for col in numericColumns:
             value=meanValue
         )
 
+st.header("Algorithm Selection")
+algorithm_choice = st.selectbox("Select the AI Algorithm for Prediction:",("Random Forest", "Decision Tree", "Gradient Boosting"))
+
+
+if algorithm_choice == "Random Forest":
+    model = rfModel
+elif algorithm_choice == "Decision Tree":
+    model = dtModel
+elif algorithm_choice == "Gradient Boosting":
+    model = gbModel
 
 if st.button("Predict Failure Risk"):
 

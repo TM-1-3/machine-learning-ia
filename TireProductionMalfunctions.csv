@@ -1,4 +1,4 @@
-date,machine_name,machine_age_days,days_since_malfunction,daily_operating_hours,malfunction_component,failed_in_next_7_days
+date,machine_name,machine_age_days,days_since_malfunction,daily_operating_hours,last_malfunction_component,failed_in_next_7_days
 2023-01-01,Mixer 0,202,28,20.59,Blade,0
 2023-01-02,Mixer 0,203,29,24.0,Blade,0
 2023-01-03,Mixer 0,204,30,24.0,Blade,0
