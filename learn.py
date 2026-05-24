@@ -5,17 +5,17 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-data = pd.read_csv("TireProductionMalfunctions.csv") # Loading the Dataset
+data = pd.read_csv("TireProductionMalfunctions.csv") 
 
-inputData = data.drop(columns=['date','failed_in_next_7_days']) # Data to Train the Model
+inputData = data.drop(columns=['date','failed_in_next_7_days']) 
 
-target = data['failed_in_next_7_days'] # 
+target = data['failed_in_next_7_days']  
 
-inputDataEncoded = pd.get_dummies(inputData, columns=['machine_name','last_malfunction_component']) # Converts Text Data into Numerical Values
+inputDataEncoded = pd.get_dummies(inputData, columns=['machine_name','last_malfunction_component']) 
 
-joblib.dump(list(inputDataEncoded.columns), 'modelColumns.pkl') # Save Column Names for Web App
+joblib.dump(list(inputDataEncoded.columns), 'modelColumns.pkl') 
 
-dataTrain, dataTest, targetTrain, targetTest = train_test_split(inputDataEncoded, target, test_size=0.2, random_state=67) # Split Data for Training and Testing
+dataTrain, dataTest, targetTrain, targetTest = train_test_split(inputDataEncoded, target, test_size=0.2, random_state=67) 
 
 print("--- 1. Random Forest ---")
 rfModel = RandomForestClassifier(n_estimators=100, random_state=67, class_weight='balanced')
